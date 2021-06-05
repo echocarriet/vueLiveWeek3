@@ -20,7 +20,7 @@ const app = Vue.createApp({
                         document.cookie = `carrieHexToken=${token}; expires=${new Date(expired)}; path=/`;
                         window.location = `${this.page}`;
                     } else {
-                        console.log(res.data.message);
+                        alert(res.data.message);
                     }
                 })
                 .catch((err) => {

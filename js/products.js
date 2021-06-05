@@ -69,7 +69,7 @@ const app = Vue.createApp({
                 .catch((err) => {
                     console.log(err);
                 })
-        },        
+        },
         delProduct() {   //刪除產品
             const url = `${this.apiUrl}api/${this.path}/admin/product/${this.tempProduct.id}`;
             axios.delete(url)
@@ -101,7 +101,11 @@ const app = Vue.createApp({
                 productModal.show();
             } else if (isNew === 'edit') { //編輯
                 //這邊用淺拷貝，不然修改同時原始資料也會一起修改(物件傳參考原理) 
-                this.tempProduct = { ...item };
+                // this.tempProduct = { ...item };
+                
+                //更換深層拷貝 ▼
+                //若已在某產品上傳了一些多圖，編輯該產品時 tempProduct 就會有兩層物件，可以改為深層拷貝將第二層的物件也一併複製，避免動到原本的資料（淺層拷貝在編輯產品 Modal 新增一張多圖，接著按「取消」關閉 Modal，下次再打開同個產品 Modal 時會發現那張圖還在）
+                this.tempProduct = JSON.parse(JSON.stringify(item));
                 this.isNew = false;
                 productModal.show();
             } else if (isNew === 'delete') {  //刪除

@@ -84,8 +84,8 @@
                             <div class="col-sm-4">
                                 <div class="mb-1">
                                     <div class="form-group">
-                                        <label for="imageUrl">主圖網址</label>
-                                        <input type="text" class="form-control mb-1" placeholder="請輸入圖片連結"
+                                        <label for="mainImageUrl">主圖網址</label>
+                                        <input id="mainImageUrl" type="text" class="form-control mb-1" placeholder="請輸入圖片連結"
                                             v-model="tempProduct.imageUrl">
                                         <img class="img-fluid" :src="tempProduct.imageUrl">
                                     </div>
@@ -139,7 +139,7 @@
                                             v-model="tempProduct.category">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="price">單位</label>
+                                        <label for="unit">單位</label>
                                         <input id="unit" type="text" class="form-control" placeholder="請輸入單位"
                                             v-model="tempProduct.unit">
                                     </div>
@@ -166,8 +166,8 @@
                     </textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="content">說明內容</label>
-                                    <textarea id="description" type="text" class="form-control" placeholder="請輸入說明內容"
+                                    <label for="productContent">說明內容</label>
+                                    <textarea id="productContent" type="text" class="form-control" placeholder="請輸入說明內容"
                                         v-model="tempProduct.content">
                     </textarea>
                                 </div>
